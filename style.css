@@ -1,0 +1,1457 @@
+/* =========================================================
+   TWO WORLDS — GOTHIC × CUTE
+   COMPLETE STYLESHEET
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #08070a;
+  color: #f4edf5;
+  font-family: "Quicksand", sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #d88bb5;
+  color: #08070a;
+}
+
+
+/* =========================================================
+   CURSOR
+   ========================================================= */
+
+.cursor {
+  width: 8px;
+  height: 8px;
+  position: fixed;
+  border-radius: 50%;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+#particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  pointer-events: none;
+  animation: floatParticle linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(110vh) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.5;
+  }
+
+  90% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 6%;
+
+  background: rgba(8, 7, 10, 0.72);
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  z-index: 1000;
+}
+
+.nav-logo {
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-logo:hover {
+  letter-spacing: 5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: #d9d0dc;
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f3a7d0;
+}
+
+
+/* =========================================================
+   GENERAL
+   ========================================================= */
+
+.section {
+  position: relative;
+  padding: 130px 8%;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  opacity: 0.55;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 70px;
+}
+
+.section-heading h2 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin: 15px 0;
+}
+
+.section-heading > p:last-child {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(104, 57, 105, 0.25),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(255, 105, 180, 0.08),
+      transparent 30%
+    ),
+    #08070a;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 60px 60px;
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 1000px;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2.7rem, 7vw, 6.8rem);
+  line-height: 1.05;
+  font-weight: 500;
+  margin: 25px 0;
+}
+
+.hero h1 span {
+  font-style: italic;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+}
+
+.hero-subtitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.45rem;
+  line-height: 1.6;
+  opacity: 0.75;
+  margin-bottom: 35px;
+}
+
+.enter-btn {
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.04);
+  color: white;
+
+  padding: 16px 28px;
+
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition: 0.35s ease;
+}
+
+.enter-btn:hover {
+  background: rgba(243,167,208,0.15);
+  border-color: rgba(243,167,208,0.6);
+  transform: translateY(-3px);
+}
+
+
+/* MOON */
+
+.moon {
+  position: absolute;
+
+  width: 270px;
+  height: 270px;
+
+  top: 13%;
+  right: 8%;
+
+  border-radius: 50%;
+
+  background: rgba(245, 238, 245, 0.08);
+
+  box-shadow:
+    0 0 80px rgba(255,255,255,0.08),
+    inset -25px -15px 40px rgba(0,0,0,0.35);
+
+  opacity: 0.6;
+}
+
+.moon::before,
+.moon::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.12);
+}
+
+.moon::before {
+  width: 40px;
+  height: 40px;
+  top: 70px;
+  left: 55px;
+}
+
+.moon::after {
+  width: 65px;
+  height: 65px;
+  bottom: 55px;
+  right: 45px;
+}
+
+
+/* HERO DECORATIONS */
+
+.bat {
+  position: absolute;
+  font-size: 2rem;
+  z-index: 3;
+  animation: batFloat 5s ease-in-out infinite;
+}
+
+.bat-one {
+  top: 25%;
+  left: 12%;
+}
+
+.bat-two {
+  bottom: 25%;
+  right: 17%;
+  animation-delay: 1.5s;
+}
+
+.bow {
+  position: absolute;
+  left: 12%;
+  bottom: 20%;
+  font-size: 2rem;
+  animation: bowFloat 4s ease-in-out infinite;
+}
+
+@keyframes batFloat {
+  0%,100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(5deg);
+  }
+}
+
+@keyframes bowFloat {
+  0%,100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(8deg) translateY(-10px);
+  }
+}
+
+
+/* =========================================================
+   TWO WORLDS
+   ========================================================= */
+
+.worlds {
+  min-height: 80vh;
+
+  display: grid;
+  grid-template-columns: 1fr 110px 1fr;
+
+  position: relative;
+}
+
+.world {
+  min-height: 650px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 70px 8%;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.gothic-world {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(130, 60, 100, 0.14),
+      transparent 50%
+    ),
+    #09080b;
+}
+
+.cute-world {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 150, 210, 0.1),
+      transparent 50%
+    ),
+    #151018;
+}
+
+.world-symbol {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.world-label {
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  opacity: 0.5;
+}
+
+.world h2 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.7rem, 4vw, 3.5rem);
+  margin: 15px 0 30px;
+}
+
+.world-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.world-details p {
+  padding: 9px 15px;
+  border: 1px solid rgba(255,255,255,0.12);
+  font-size: 0.75rem;
+}
+
+.world-description {
+  max-width: 450px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  opacity: 0.7;
+}
+
+.divider-world {
+  min-height: 650px;
+  background: #0b090d;
+  padding: 0;
+}
+
+.collision {
+  display: flex;
+  gap: 10px;
+  font-size: 1.4rem;
+  transform: rotate(-90deg);
+  opacity: 0.6;
+}
+
+.divider-world > p {
+  font-size: 0.55rem;
+  letter-spacing: 3px;
+  opacity: 0.35;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  margin-top: 50px;
+}
+
+
+/* =========================================================
+   STORY
+   ========================================================= */
+
+.story {
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(150,80,130,0.1),
+      transparent 40%
+    );
+}
+
+.story-line {
+  max-width: 850px;
+  margin: auto;
+  position: relative;
+}
+
+.story-line::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 30px;
+
+  width: 1px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255,255,255,0.2),
+    transparent
+  );
+}
+
+.story-card {
+  position: relative;
+
+  margin-bottom: 30px;
+  padding: 35px 40px 35px 80px;
+
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  transition: 0.4s ease;
+}
+
+.story-card:hover {
+  transform: translateX(8px);
+  border-color: rgba(243,167,208,0.25);
+  background: rgba(255,255,255,0.045);
+}
+
+.story-number {
+  position: absolute;
+
+  left: 18px;
+  top: 32px;
+
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+
+  font-size: 0.6rem;
+}
+
+.story-label {
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  opacity: 0.45;
+  margin-bottom: 10px;
+}
+
+.story-card h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1.35rem;
+  margin-bottom: 15px;
+}
+
+.story-card p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  line-height: 1.65;
+  opacity: 0.75;
+}
+
+.story-card blockquote {
+  margin: 20px 0;
+
+  padding: 15px 20px;
+
+  border-left: 2px solid #d88bb5;
+
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 1.3rem;
+
+  color: #eab6d4;
+}
+
+.story-highlight {
+  color: #eab6d4 !important;
+  font-family: "Quicksand", sans-serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   LORE
+   ========================================================= */
+
+.lore {
+  background: #0a090c;
+}
+
+.lore-grid {
+  max-width: 1000px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.lore-card {
+  position: relative;
+
+  padding: 40px;
+
+  min-height: 250px;
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.035),
+      rgba(255,255,255,0.01)
+    );
+
+  transition: 0.4s ease;
+}
+
+.lore-card:hover {
+  transform: translateY(-7px) rotate(-0.5deg);
+  border-color: rgba(243,167,208,0.3);
+}
+
+.lore-card > span {
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  opacity: 0.4;
+}
+
+.lore-card h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1.3rem;
+  margin: 20px 0 15px;
+}
+
+.lore-card p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.lore-card strong {
+  display: block;
+  margin-top: 25px;
+
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+
+  color: #d88bb5;
+}
+
+
+/* =========================================================
+   POEM
+   ========================================================= */
+
+.poem-section {
+  position: relative;
+  padding: 150px 8%;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(130,70,110,0.12),
+      transparent 50%
+    );
+}
+
+.poem-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 70px;
+}
+
+.poem-intro h2 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin: 15px 0;
+}
+
+.poem-intro p:last-child {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  opacity: 0.7;
+}
+
+.poem-container {
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+  padding: 3px;
+}
+
+.poem-container::before {
+  content: "";
+
+  position: absolute;
+  inset: -20px;
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  transform: rotate(-1deg);
+
+  pointer-events: none;
+}
+
+.poem {
+  position: relative;
+
+  padding: 80px 90px;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255,255,255,0.04),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(255,105,180,0.05),
+      transparent 30%
+    ),
+    rgba(15,12,18,0.95);
+
+  border: 1px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.5),
+    inset 0 0 50px rgba(255,255,255,0.02);
+
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.poem:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 40px 100px rgba(0,0,0,0.6),
+    inset 0 0 70px rgba(255,255,255,0.03);
+}
+
+.poem h3 {
+  text-align: center;
+
+  font-family: "Cinzel", serif;
+
+  letter-spacing: 4px;
+  font-size: 1.3rem;
+
+  margin-bottom: 55px;
+}
+
+.poem > p {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 1.35rem;
+
+  line-height: 1.9;
+
+  text-align: center;
+
+  margin: 0 0 38px;
+}
+
+.poem-dedication {
+  margin-top: 55px;
+  text-align: center;
+}
+
+.poem-dedication p {
+  font-family: "Quicksand", sans-serif;
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+
+  margin: 10px 0;
+}
+
+.poem-dedication span {
+  opacity: 0.5;
+  letter-spacing: 8px;
+}
+
+.poem-decoration {
+  position: absolute;
+
+  font-size: 2rem;
+
+  opacity: 0.6;
+
+  z-index: 2;
+}
+
+.top-left {
+  top: 25px;
+  left: 30px;
+}
+
+.top-right {
+  top: 25px;
+  right: 30px;
+}
+
+.bottom-left {
+  bottom: 25px;
+  left: 30px;
+}
+
+.bottom-right {
+  bottom: 25px;
+  right: 30px;
+}
+
+
+/* =========================================================
+   LETTERS
+   ========================================================= */
+
+.letters {
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(120,60,110,0.1),
+      transparent 35%
+    );
+}
+
+.letter-grid {
+  max-width: 950px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.letter-card {
+  position: relative;
+
+  text-align: left;
+
+  padding: 35px;
+
+  min-height: 240px;
+
+  color: #f4edf5;
+
+  background: rgba(255,255,255,0.025);
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  cursor: pointer;
+
+  transition: 0.4s ease;
+}
+
+.letter-card:hover {
+  transform: translateY(-7px);
+
+  background: rgba(243,167,208,0.06);
+
+  border-color: rgba(243,167,208,0.3);
+}
+
+.letter-icon {
+  font-size: 1.8rem;
+}
+
+.letter-card h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1.25rem;
+  margin: 20px 0 10px;
+}
+
+.letter-card p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  opacity: 0.65;
+}
+
+.open-text {
+  position: absolute;
+
+  bottom: 25px;
+  left: 35px;
+
+  font-size: 0.6rem;
+
+  letter-spacing: 2px;
+
+  opacity: 0.5;
+}
+
+
+/* =========================================================
+   QURAN NOTE
+   ========================================================= */
+
+.quran-note {
+  max-width: 700px;
+
+  margin: 80px auto 0;
+
+  padding: 45px;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.quran-star {
+  display: block;
+  margin-bottom: 20px;
+  opacity: 0.6;
+}
+
+.quran-arabic {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.quran-note > p:not(.quran-arabic) {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.quran-note small {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  opacity: 0.45;
+}
+
+
+/* =========================================================
+   GIFT
+   ========================================================= */
+
+.gift-section {
+  text-align: center;
+  min-height: 650px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(180,80,140,0.13),
+      transparent 40%
+    );
+}
+
+.gift-section h2 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin: 20px 0 40px;
+}
+
+.gift-box {
+  border: none;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.gift-body {
+  width: 130px;
+  height: 110px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: auto;
+
+  font-size: 4rem;
+
+  transition: 0.5s ease;
+}
+
+.gift-box:hover .gift-body {
+  transform: translateY(-15px) rotate(4deg) scale(1.08);
+}
+
+.gift-box p {
+  margin-top: 10px;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  opacity: 0.5;
+}
+
+
+/* =========================================================
+   SECRET
+   ========================================================= */
+
+.secret {
+  min-height: 600px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background: #060508;
+}
+
+.secret-box {
+  max-width: 800px;
+
+  padding: 70px 50px;
+
+  border: 1px dashed rgba(255,255,255,0.15);
+
+  position: relative;
+}
+
+.secret-box h2 {
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+
+  margin: 20px 0;
+}
+
+.secret-box > p:not(.eyebrow) {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 1.3rem;
+
+  line-height: 1.8;
+
+  opacity: 0.65;
+}
+
+.secret-symbol {
+  margin-top: 35px;
+  font-size: 1.7rem;
+}
+
+
+/* =========================================================
+   FINAL
+   ========================================================= */
+
+.final-section {
+  min-height: 80vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 100px 8%;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(130,70,120,0.16),
+      transparent 45%
+    );
+}
+
+.final-content {
+  max-width: 850px;
+}
+
+.final-content h2 {
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(2rem, 5vw, 4.5rem);
+
+  margin: 20px 0;
+}
+
+.final-big {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(2.5rem, 6vw, 5rem);
+
+  font-style: italic;
+
+  margin-bottom: 30px;
+}
+
+.final-content > p:not(.eyebrow):not(.final-big) {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 1.3rem;
+
+  opacity: 0.6;
+}
+
+.final-signature {
+  margin-top: 40px;
+  font-size: 2rem;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  padding: 45px 20px;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(255,255,255,0.07);
+
+  background: #050406;
+}
+
+footer p {
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  opacity: 0.4;
+
+  margin: 7px 0;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: rgba(0,0,0,0.8);
+
+  backdrop-filter: blur(15px);
+
+  z-index: 5000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+
+  max-width: 650px;
+  width: 100%;
+
+  max-height: 85vh;
+  overflow-y: auto;
+
+  padding: 65px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(150,80,130,0.18),
+      transparent 50%
+    ),
+    #100d13;
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  box-shadow: 0 30px 100px rgba(0,0,0,0.7);
+
+  animation: modalAppear 0.35s ease;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.close-modal {
+  position: absolute;
+
+  top: 18px;
+  right: 22px;
+
+  border: none;
+  background: transparent;
+
+  color: white;
+
+  font-size: 2rem;
+
+  cursor: pointer;
+
+  opacity: 0.5;
+}
+
+.close-modal:hover {
+  opacity: 1;
+}
+
+#modal-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+#modal-title {
+  font-family: "Cinzel", serif;
+
+  font-size: 1.8rem;
+
+  margin-bottom: 25px;
+}
+
+#modal-text {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 1.35rem;
+
+  line-height: 1.8;
+
+  opacity: 0.8;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+  .nav {
+    height: 65px;
+    padding: 0 5%;
+  }
+
+  .nav-logo {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 0.6rem;
+  }
+
+  .nav-links a:nth-child(2),
+  .nav-links a:nth-child(3) {
+    display: none;
+  }
+
+
+  /* HERO */
+
+  .hero h1 {
+    font-size: clamp(2.3rem, 11vw, 4rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .moon {
+    width: 160px;
+    height: 160px;
+    top: 15%;
+    right: -40px;
+  }
+
+  .bat-one {
+    left: 5%;
+  }
+
+  .bat-two {
+    right: 5%;
+  }
+
+
+  /* WORLDS */
+
+  .worlds {
+    grid-template-columns: 1fr;
+  }
+
+  .world {
+    min-height: 500px;
+  }
+
+  .divider-world {
+    min-height: 100px;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .collision {
+    transform: none;
+  }
+
+  .divider-world > p {
+    transform: none;
+    margin-top: 0;
+  }
+
+
+  /* STORY */
+
+  .section {
+    padding: 100px 6%;
+  }
+
+  .story-line::before {
+    left: 15px;
+  }
+
+  .story-card {
+    padding: 30px 25px 30px 55px;
+  }
+
+  .story-number {
+    left: 3px;
+  }
+
+
+  /* LORE */
+
+  .lore-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lore-card {
+    padding: 30px;
+  }
+
+
+  /* POEM */
+
+  .poem-section {
+    padding: 100px 5%;
+  }
+
+  .poem {
+    padding: 55px 25px;
+  }
+
+  .poem p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+
+  .poem h3 {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .poem-container::before {
+    inset: -10px;
+  }
+
+
+  /* LETTERS */
+
+  .letter-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* QURAN */
+
+  .quran-note {
+    padding: 35px 15px;
+  }
+
+
+  /* SECRET */
+
+  .secret-box {
+    padding: 50px 25px;
+  }
+
+
+  /* MODAL */
+
+  .modal-content {
+    padding: 55px 25px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
